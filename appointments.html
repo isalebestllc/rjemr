@@ -14,11 +14,13 @@
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </head>
   <body>
     <div id="app">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">eClinic</a>
+        <a class="navbar-brand" href="index.html">eClinic</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -49,7 +51,6 @@
           <div class="col-md-8 offset-md-2">
             <h1>Book an Appointment</h1>
             <form>
-                
               <div class="form-group">
                 <label for="doctor">Doctor:</label>
                 <select
@@ -102,7 +103,6 @@
                   Book Appointment
                 </button>
               </div>
-
             </form>
           </div>
         </div>
@@ -145,6 +145,32 @@
         },
         methods: {
           scheduleAppointment: function () {
+            // Check if all fields have been filled out
+            if (
+              !this.selectedDoctor ||
+              !this.selectedDate ||
+              !this.selectedTime ||
+              !this.notes
+            ) {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please fill out all fields",
+              });
+              return;
+            }
+
+            // Display appointment data using SweetAlert
+            const doctorName = this.selectedDoctor.name;
+            const appointmentDate = this.selectedDate;
+            const appointmentTime = this.selectedTime;
+            const notes = this.notes;
+            Swal.fire({
+              icon: "success",
+              title: "Appointment Scheduled!",
+              html: `You have scheduled an appointment with <strong>${doctorName}</strong> on <strong>${appointmentDate}</strong> at <strong>${appointmentTime}</strong>.<br> <p>${notes}</p>`,
+            });
+
             // Here you would implement the code to send the appointment details to your server
             console.log(
               "Appointment scheduled:",
