@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eClinic - Appointments</title>
+    <title>eClinic - About Us</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- Vue.js -->
@@ -33,30 +33,16 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <h1>Book an Appointment</h1>
-                    <form>
-                        <div class="form-group">
-                            <label for="doctorSelect">Select a Doctor</label>
-                            <select class="form-control" id="doctorSelect" v-model="selectedDoctor">
-                                <option v-for="doctor in doctors" :value="doctor">{{ doctor.name }}</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="datePicker">Select a Date</label>
-                            <input type="date" class="form-control" id="datePicker" v-model="selectedDate">
-                        </div>
-                        <div class="form-group">
-                            <label for="timeSelect">Select a Time</label>
-                            <select class="form-control" id="timeSelect" v-model="selectedTime">
-                                <option v-for="time in times" :value="time">{{ time }}</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="notesTextarea">Additional Notes (Optional)</label>
-                            <textarea class="form-control" id="notesTextarea" rows="3" v-model="notes"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" @click.prevent="bookAppointment()">Book Appointment</button>
-                    </form>
+                    <h1>About Us</h1>
+                    <p>
+                        eClinic is a modern online healthcare platform that provides high-quality medical care from the comfort of your own home. Our team of experienced doctors and healthcare professionals are dedicated to providing personalized care and attention to each and every one of our patients.
+                    </p>
+                    <p>
+                        Our platform is designed to be easy to use and accessible to anyone with an internet connection. We offer a wide range of medical services, including teleconsultations, online prescriptions, and appointment scheduling.
+                    </p>
+                    <p>
+                        At eClinic, we are committed to improving the health and wellbeing of our patients. We believe that everyone deserves access to high-quality healthcare, and we are dedicated to making that a reality.
+                    </p>
                 </div>
             </div>
         </div>
@@ -71,5 +57,6 @@
       el: "#app",
     });
   </script>
+  
 </body>
 </html>
